@@ -1,89 +1,87 @@
-﻿namespace Ex2
+﻿using System;
+
+namespace Ex1
 {
-    class GameItem
+    class LibraryItem
     {
-        protected string Name;
-        protected int Level;
-        protected int Score;
+        protected string Title;
+        protected string Author;
+        protected int PublicationYear;
 
-        public GameItem(string name, int level, int score)
+        public LibraryItem(string title, string author, int publicationYear)
         {
-            Name = name;
-            Level = level;
-            Score = score;
+            Title = title;
+            Author = author;
+            PublicationYear = publicationYear;
         }
 
-        public GameItem() { }
+        public LibraryItem() { }
 
-        public String PName
+        public String PTitle
         {
-            get { return Name; }
-            set { Name = value; }
+            get { return Title; }
+            set { Title = value; }
         }
 
-        public int PLevel
+        public String PAuthor
         {
-            get { return Level; }
-            set { Level = value; }
+            get { return Author; }
+            set { Author = value; }
         }
 
-        public int PScore
+        public int PPublicationYear
         {
-            get { return Score; }
-            set { Score = value; }
+            get { return PublicationYear; }
+            set { PublicationYear = value; }
         }
 
         public virtual String ToString()
         {
-            return "Name: " + PName + "  Level: " + PLevel + "  Score: " + PScore;
+            return "Title: " + PTitle + "  Author: " + PAuthor + "  Publication: " + PPublicationYear;
         }
     }
 
-    class Weapon : GameItem
-    {
-        public Weapon() { }
+     class Book : LibraryItem
+     {
+        public Book() { }
 
         public override String ToString()
         {
-            return "Name: " + PName + "  Level: " + PLevel + "  Score: " + PScore;
+            return "Title: " + PTitle + "  Author: " + PAuthor + "  Publication: " + PPublicationYear;
         }
-    }
+     } 
 
-    class Armor : GameItem
+    class Magazine : LibraryItem
     {
-        public Armor() { }
-
+        public Magazine() { }
+    
         public override String ToString()
         {
-            return "Name: " + PName + "  Level: " + PLevel + "  Score: " + PScore;
+            return "Title: " + PTitle + "  Author: " + PAuthor + "  Publication: " + PPublicationYear;
         }
     }
 
-    class Consumable : GameItem
-    {
-        public Consumable() { }
+     class DVD : LibraryItem
+     {
+        public DVD() { }
         public override String ToString()
         {
-            return "Name: " + PName + "  Level: " + PLevel + "  Score: " + PScore;
+            return "Title: " + PTitle + "  Author: " + PAuthor + "  Publication: " + PPublicationYear;
         }
-    }
-    internal class Program
+     }
+    class Program
     {
         static void Main(string[] args)
         {
-            Weapon weapon = new Weapon();
-            weapon.PName = "Garen";
-            weapon.PLevel = 15;
-            weapon.PScore = 500;
-            Console.WriteLine(weapon.ToString());
+            Book book = new Book();
 
-            Armor armor = new Armor();
-            armor.PName = "javan";
-            armor.PLevel = 18;
-            armor.PScore = 800;
-            Console.WriteLine(armor.ToString());
+            book.PTitle = "Nha Gia Kim";
+            book.PAuthor = "Paulo Coelho";
+            book.PPublicationYear = 1988;
+            Console.WriteLine(book.ToString());
+            Magazine maga = new Magazine();
+            DVD dVd = new DVD(); 
 
-            Consumable consumable = new Consumable();
         }
     }
 }
